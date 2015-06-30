@@ -1,0 +1,82 @@
+MediosTransporte
+- id [PrimaryKey] (varchar[20])
+- ubicacion (geography)
+- velocidad_media (number)
+- capacidad_peso (number)
+- hora_salida (date)
+- hora_llegada (date)
+- tiempo_estimado_viaje (date)
+
+Aviones
++ inherits(MediosTransporte)
++ volar()
+
+Barcos
+- 
++ inherits(MediosTransporte)
++ navegar()
+
+Camiones
+- 
++ inherits(MediosTransporte)
++ correr()
+
+Paquetes
+- id [Primary Key] (varchar[20])
+- peso (number)
+- dimensiones (number)
+- medio_transporte [Forein Key] (varchar[20])
+- remitente [Foreign Key] (varchar[20])
+- destinatario [Foreign Key] (varchar[20])
+
+Personas
+- id [Primary Key] (varchar[20])
+- documentoIdentidad (varchar[20])
+- nombres (varchar[20])
+- apellidos (varchar[20])
+- fecha_nacimiento (date)
+- sexo (char[1])
+
+Contactos
+- id [Primary Key] (varchar20)
+- persona [Foreign Key] (varchar[20])
+- telefono (varchar[20])
+- ciudad (varchar[3])
+
+Remitentes
+- id (varchar[20])
++ inherits(Personas)
+
+Paquetes
+O
+
+Rutas
+- id [Primary Key] (varchar[20])
+- hora_salida (date)
+- hora_estimada_llegada (date)
+
+DescripcionRutas
+- id [Primary Key] (varchar[20])
+- ruta [Foreign Key] (varchar[20])
+- orden (varchar[5])
+- longitud (varchar[20])
+- latitud (varchar[20])
+- medio_transporte [Foreign Key] (varchar[20])
+
+Retrasos
+- id [Primary Key] (varchar[20])
+- latitud (geography)
+- longitud (geography)
+- hora_inicio (date)
+- hora_fin (date)
+- duracion_retraso
+- envio [Foreign Key] (varchar[20])
+
+Envios
+- id [Primary Key] (varchar[20])
+- ruta [Foreign Key] (varchar[20])
+
+Paises
+- id [Primary Key] (varchar[3])
+- nombre (varchar[20])
+- nombre_ciudad (varchar[20])
